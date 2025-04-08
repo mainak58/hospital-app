@@ -11,8 +11,10 @@ export default function Home() {
     const today = new Date().toISOString().split("T")[0];
 
     useEffect(() => {
-        fetchDoctor(today);
-        setLoading(false);
+        const newDate = date?.toISOString().split("T")[0];
+        if (newDate) {
+            fetchDoctor(newDate);
+        }
     }, [date]);
 
     class DateAndTime {
@@ -22,6 +24,7 @@ export default function Home() {
 
         handleChange(e: ChangeEvent<HTMLInputElement>) {
             e.preventDefault();
+            setLoading(false);
             const value = e.target.value;
             setDate(value ? new Date(value) : null);
         }
@@ -58,20 +61,22 @@ export default function Home() {
 
                 <label htmlFor="doctor">Doctor name:</label>
                 <select name="doctor" id="doctor">
-                    {loading ? (
-                        doctor.map((d) => (
-                            <option key={d.doctorId} value={d.doctorId}>
-                                {d.doctorName}
+                    {!loading ? (
+                        <>
+                            <option disabled selected>
+                                -- Select a doctor --
                             </option>
-                        ))
+                            {doctor.map((d) => (
+                                <>
+                                    <option key={d.doctorId} value={d.doctorId}>
+                                        {d.doctorName}
+                                    </option>
+                                </>
+                            ))}
+                        </>
                     ) : (
-                        <h1>false</h1>
+                        <option disabled>No doctors available</option>
                     )}
-                </select>
-
-                <label htmlFor="cars">Specalization for:</label>
-                <select name="cars" id="cars">
-                    <option value="audi">Audi</option>
                 </select>
             </div>
         </>
