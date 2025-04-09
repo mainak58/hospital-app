@@ -59,25 +59,21 @@ export default function Home() {
                     min={today}
                 />
 
-                <label htmlFor="doctor">Doctor name:</label>
-                <select name="doctor" id="doctor">
-                    {!loading ? (
-                        <>
-                            <option disabled selected>
-                                -- Select a doctor --
-                            </option>
-                            {doctor.map((d) => (
-                                <>
-                                    <option key={d.doctorId} value={d.doctorId}>
-                                        {d.doctorName}
-                                    </option>
-                                </>
-                            ))}
-                        </>
-                    ) : (
-                        <option disabled>No doctors available</option>
-                    )}
-                </select>
+                {!loading ? (
+                    <>
+                        {doctor.map((d) => (
+                            <>
+                                <div key={d.doctorId}>
+                                    <h1>{d.doctorName}</h1>
+                                    <p>{d.specialization}</p>
+                                    <p>{d.totalBookingAcceptedInTheDay}</p>
+                                </div>
+                            </>
+                        ))}
+                    </>
+                ) : (
+                    <h1>no doctor avilavle</h1>
+                )}
             </div>
         </>
     );
