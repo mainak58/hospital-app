@@ -23,6 +23,3 @@ export async function POST(request: Request) {
         );
     }
 }
-
-// const upload = "INSERT INTO public.doctors ("doctorName", "totalBookingAcceptedInTheDay", "doctorImage", "doctorDescription", specialization, "dateAvailable")
-// VALUES ('Dr. John Doe', 10, 'http://example.com/image.jpg', 'Experienced cardiologist', 'Cardiology', '2024-01-01')"
