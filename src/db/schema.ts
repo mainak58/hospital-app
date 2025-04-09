@@ -4,8 +4,10 @@ import { date, integer, pgTable, varchar } from "drizzle-orm/pg-core";
 export const doctorTable = pgTable("doctors", {
     doctorId: integer().unique().primaryKey().generatedAlwaysAsIdentity(),
     doctorName: varchar({ length: 255 }).notNull(),
-    specalization: varchar({ length: 255 }).notNull(),
-    dateAvilable: date().notNull(),
+    doctorImage: varchar(),
+    doctorDescription: varchar().notNull(),
+    specialization: varchar({ length: 255 }).notNull(),
+    dateAvailable: date().notNull(),
     totalBookingAcceptedInTheDay: integer(),
 });
 
