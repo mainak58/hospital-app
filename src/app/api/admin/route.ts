@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
     const body = await request.json();
-    const { name, image, description, date, special, booking } = body;
+    const { name, image, description, date, special, totalBooking } = body;
 
     try {
         const create = await db.insert(doctorTable).values({
@@ -13,7 +13,7 @@ export async function POST(request: Request) {
             doctorDescription: description ? description : "good first doctor",
             specialization: special ? special : "",
             dateAvailable: date ? date : "",
-            totalBookingAcceptedInTheDay: booking ? booking : "5",
+            totalBookingAcceptedInTheDay: totalBooking ? totalBooking : "5",
         });
         return NextResponse.json({ success: true, data: create });
     } catch (error) {
