@@ -60,20 +60,18 @@ function page() {
                     />
                     <div className="flex flex-col w-full md:w-[400px] space-y-4 p-4">
                         <h2 className="text-[35px] md:text-[35px] font-bold text-gray-800">
-                            We make people fall in love with their doctor's
-                            office
+                            We make people fall in love with their office
                         </h2>
                         <p className="text-gray-600 leading-relaxed">
-                            One Medical's member experience is powered by
-                            intelligent uses of technology, including a mobile
-                            app that helps schedule appointments, renew
-                            prescriptions, and message with a provider.
-                            Consistent, quality care is ensured through
-                            up-to-date digital health records and with proactive
-                            digital health reminders. And if you can't make it
-                            in to the office, One Medical makes access to care
-                            frictionless with face-to-face care over Video Chat
-                            available anytime.
+                            One member experience is powered by intelligent uses
+                            of technology, including a mobile app that helps
+                            schedule appointments, renew prescriptions, and
+                            message with a provider. Consistent, quality care is
+                            ensured through up-to-date digital health records
+                            and with proactive digital health reminders. And if
+                            you cant make it in to the office, One Medical makes
+                            access to care frictionless with face-to-face care
+                            over Video Chat available anytime.
                         </p>
                     </div>
                 </div>
@@ -92,14 +90,14 @@ function page() {
                             Mission-driven leadership
                         </h2>
                         <p className="text-gray-600 leading-relaxed">
-                            One Medical's member experience is powered by
+                            One Medicals member experience is powered by
                             intelligent uses of technology, including a mobile
                             app that helps schedule appointments, renew
                             prescriptions, and message with a provider.
                             Consistent, quality care is ensured through
                             up-to-date digital health records and with proactive
-                            digital health reminders. And if you can't make it
-                            in to the office, One Medical makes access to care
+                            digital health reminders. And if you cant make it in
+                            to the office, One Medical makes access to care
                             frictionless with face-to-face care over Video Chat
                             available anytime.
                         </p>
@@ -120,14 +118,14 @@ function page() {
                             One Medical acquires Iora Health
                         </h2>
                         <p className="text-gray-600 leading-relaxed">
-                            One Medical's member experience is powered by
+                            One Medicals member experience is powered by
                             intelligent uses of technology, including a mobile
                             app that helps schedule appointments, renew
                             prescriptions, and message with a provider.
                             Consistent, quality care is ensured through
                             up-to-date digital health records and with proactive
-                            digital health reminders. And if you can't make it
-                            in to the office, One Medical makes access to care
+                            digital health reminders. And if you cant make it in
+                            to the office, One Medical makes access to care
                             frictionless with face-to-face care over Video Chat
                             available anytime.
                         </p>
