@@ -2,6 +2,7 @@
 
 import { ChangeEvent, useEffect, useState } from "react";
 import { Doctor } from "../..";
+import Image from "next/image";
 
 export default function Home() {
     const [date, setDate] = useState<Date | null>(null);
@@ -62,17 +63,22 @@ export default function Home() {
                 {!loading ? (
                     <>
                         {doctor.map((d) => (
-                            <>
-                                <div key={d.doctorId}>
-                                    <h1>{d.doctorName}</h1>
-                                    <p>{d.specialization}</p>
-                                    <p>{d.totalBookingAcceptedInTheDay}</p>
-                                </div>
-                            </>
+                            <div key={d.doctorId}>
+                                <h1>{d.doctorName}</h1>
+                                <p>{d.specialization}</p>
+                                <p>{d.totalBookingAcceptedInTheDay}</p>
+                                <Image
+                                    src={d.doctorImage}
+                                    alt="Doctor image"
+                                    width={150}
+                                    height={150}
+                                    objectFit="cover"
+                                />
+                            </div>
                         ))}
                     </>
                 ) : (
-                    <h1>no doctor avilavle</h1>
+                    <div>No doctor available in this date</div>
                 )}
             </div>
         </>

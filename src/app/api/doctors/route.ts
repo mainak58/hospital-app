@@ -18,7 +18,7 @@ export async function GET(request: Request) {
         const doctorByDate = await db
             .select()
             .from(doctorTable)
-            .where(eq(doctorTable.dateAvilable, date));
+            .where(eq(doctorTable.dateAvailable, date));
         return NextResponse.json(doctorByDate);
     } catch (error) {
         return NextResponse.json(
