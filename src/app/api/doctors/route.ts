@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { db } from "@/lib/db";
 import { doctorTable } from "@/db/schema";
 import { eq } from "drizzle-orm";

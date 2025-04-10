@@ -61,9 +61,6 @@ export default function Admin() {
                     }),
                 });
 
-                const result = await res.json();
-                console.log(result);
-
                 if (res.ok) {
                     alert("Doctor created successfully");
                     setName("");
