@@ -2,7 +2,7 @@ import { relations } from "drizzle-orm";
 import { date, integer, pgTable, varchar } from "drizzle-orm/pg-core";
 
 export const doctorTable = pgTable("doctors", {
-    doctorId: integer().unique().primaryKey().generatedAlwaysAsIdentity(),
+    doctorId: integer().primaryKey().generatedAlwaysAsIdentity(),
     doctorName: varchar({ length: 255 }).notNull(),
     doctorImage: varchar(),
     doctorDescription: varchar().notNull(),
@@ -12,9 +12,11 @@ export const doctorTable = pgTable("doctors", {
 });
 
 export const patientTable = pgTable("patients", {
-    patientId: integer().unique().primaryKey().generatedAlwaysAsIdentity(),
+    patientId: integer().primaryKey().generatedAlwaysAsIdentity(),
     patientName: varchar({ length: 50 }).notNull(),
     bookingSlotNumber: integer().notNull(),
+    email: varchar(),
+    patientAddress: varchar(),
     doctorId: integer("doctorId")
         .references(() => doctorTable.doctorId, { onDelete: "cascade" })
         .notNull(),

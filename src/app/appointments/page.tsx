@@ -2,14 +2,16 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { Doctor } from "../../..";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export function Appointments() {
     const [date, setDate] = useState<Date | null>(null);
     const [doctor, setDoctor] = useState<Doctor[]>([]);
     const [loading, setLoading] = useState(false);
+    // const [doctorIdS, setDoctorIdS] = useState<number | null>(null);
+    const router = useRouter();
 
     const today = new Date().toISOString().split("T")[0];
-
     useEffect(() => {
         const newDate = date?.toISOString().split("T")[0];
         if (newDate) {
@@ -50,36 +52,52 @@ export function Appointments() {
 
     return (
         <>
-            <div className="flex gap-2">
-                <input
-                    type="date"
-                    className="bg-amber-400"
-                    value={date ? date.toISOString().split("T")[0] : ""}
-                    onChange={dateAndTime.handleChange}
-                    min={today}
-                />
+            <form action="">
+                <div className="flex gap-2">
+                    <input
+                        type="date"
+                        className="bg-amber-400"
+                        value={date ? date.toISOString().split("T")[0] : ""}
+                        onChange={dateAndTime.handleChange}
+                        min={today}
+                    />
 
-                {!loading ? (
-                    <>
-                        {doctor.map((d) => (
-                            <div key={d.doctorId}>
-                                <h1>{d.doctorName}</h1>
-                                <p>{d.specialization}</p>
-                                <p>{d.totalBookingAcceptedInTheDay}</p>
-                                <Image
-                                    src={d.doctorImage}
-                                    alt="Doctor image"
-                                    width={150}
-                                    height={150}
-                                    objectFit="cover"
-                                />
-                            </div>
-                        ))}
-                    </>
-                ) : (
-                    <div>No doctor available in this date</div>
-                )}
-            </div>
+                    {!loading ? (
+                        <>
+                            {doctor.map((d) => (
+                                <div key={d.doctorId}>
+                                    <h1>{d.doctorName}</h1>
+
+                                    <p>{d.specialization}</p>
+                                    <p>{d.totalBookingAcceptedInTheDay}</p>
+                                    <Image
+                                        src={d.doctorImage}
+                                        alt="Doctor image"
+                                        width={150}
+                                        height={150}
+                                        objectFit="cover"
+                                    />
+                                    <button
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            const formattedDate = date
+                                                ?.toISOString()
+                                                .split("T")[0];
+                                            router.push(
+                                                `/appointments/${d.doctorId}?date=${formattedDate}`
+                                            );
+                                        }}
+                                    >
+                                        Select doctor
+                                    </button>
+                                </div>
+                            ))}
+                        </>
+                    ) : (
+                        <div>No doctor available in this date</div>
+                    )}
+                </div>
+            </form>
         </>
     );
 }
