@@ -7,3 +7,12 @@ export type Doctor = {
     dateAvailable: string;
     totalBookingAcceptedInTheDay: number | null;
 };
+
+export type Patient = {
+    patientId: number;
+    patientName: string;
+    bookingSlotNumber: number;
+    email: string;
+    patientAddress: string;
+    doctorId: number;
+};
