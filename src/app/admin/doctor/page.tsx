@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Doctor } from "../../../..";
+import { Doctor } from "../../../../..";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -118,6 +118,18 @@ export default function DoctorList() {
                                         className="text-red-500 hover:text-red-700 font-medium transition-colors duration-200"
                                     >
                                         Delete
+                                    </button>
+                                </td>
+                                <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
+                                    <button
+                                        onClick={() =>
+                                            route.push(
+                                                `/admin/doctor/id/?id=${d.doctorId}`
+                                            )
+                                        }
+                                        className="text-red-500 hover:text-red-700 font-medium transition-colors duration-200"
+                                    >
+                                        see patient
                                     </button>
                                 </td>
                             </tr>
