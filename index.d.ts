@@ -16,3 +16,17 @@ export type Patient = {
     patientAddress: string;
     doctorId: number;
 };
+
+export interface PatientWithDoctor {
+    patientId: number;
+    patientName: string;
+    bookingSlotNumber: number;
+    email: string;
+    patientAddress: string;
+    doctorId?: number;
+    doctor: {
+        doctorId: number;
+        doctorName: string;
+        doctorImage?: string;
+    };
+}

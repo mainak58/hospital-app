@@ -2,21 +2,8 @@
 
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import { PatientWithDoctor } from "../../../../..";
 
-// Define the patient interface that matches the API response
-interface PatientWithDoctor {
-    patientId: number;
-    patientName: string;
-    bookingSlotNumber: number;
-    email: string;
-    patientAddress: string;
-    doctorId: number;
-    doctor: {
-        doctorId: number;
-        doctorName: string;
-        doctorImage: string;
-    };
-}
 
 export default function FetchPatient() {
     const [fetchPatient, setFetchPatient] = useState<PatientWithDoctor[]>([]);
