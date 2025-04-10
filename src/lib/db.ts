@@ -1,10 +1,12 @@
+import { neonConfig } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-http";
-import dotenv from "dotenv";
 
-dotenv.config();
+neonConfig.fetchConnectionCache = true;
+const connectionString = process.env.DATABASE_URL!;
+let cachedDb: ReturnType<typeof drizzle> | null = null;
 
-const connectionString = process.env.DATABASE_URL;
-if (!connectionString) {
-    throw new Error("DATABASE_URL is not set");
+if (!cachedDb) {
+    cachedDb = drizzle(connectionString);
 }
-export const db = drizzle(connectionString);
+
+export const db = cachedDb;
