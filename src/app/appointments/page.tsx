@@ -109,7 +109,7 @@ export function Appointments() {
                                                     ?.toISOString()
                                                     .split("T")[0];
                                                 router.push(
-                                                    `/appointments/${d.doctorId}?date=${formattedDate}`
+                                                    `/appointments/id?id=${d.doctorId}&date=${formattedDate}`
                                                 );
                                             }}
                                             className="mt-4 bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-4 rounded-lg font-medium transition duration-200"
