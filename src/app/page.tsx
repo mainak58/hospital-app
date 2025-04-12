@@ -1,9 +1,9 @@
-import Navbar from "@/components/Navbar";
+import NavbarCheck from "@/components/NavbarCheck";
 
 export default function Home() {
     return (
         <>
-            <Navbar />
+            <NavbarCheck />
         </>
     );
 }
