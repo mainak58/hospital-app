@@ -40,3 +40,10 @@ declare global {
         };
     }
 }
+
+export interface ClientProps {
+    userId?: string;
+    name: string;
+    email: string;
+    firstName?: string;
+}
