@@ -11,9 +11,7 @@ export default clerkMiddleware(async (auth, req) => {
         const url = new URL("/", req.url);
         return NextResponse.redirect(url);
     }
-},
-// authorizedParties:['http://localhost:3000/']
-);
+});
 
 export const config = {
     matcher: [
