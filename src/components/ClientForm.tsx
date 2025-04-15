@@ -4,7 +4,7 @@ import { ChangeEvent, useState } from "react";
 import { ClientProps } from "../..";
 import { useRouter, useSearchParams } from "next/navigation";
 
-function ClientForm({ name, email }: ClientProps) {
+function ClientForm({ name, email, clerkId }: ClientProps) {
     const router = useRouter();
 
     const [address, setAddress] = useState("");
@@ -23,6 +23,7 @@ function ClientForm({ name, email }: ClientProps) {
                     bookingSlotNumber: 1,
                     email: email,
                     patientAddress: address,
+                    clerkId: clerkId,
                 }),
             });
             const res = await result.json();

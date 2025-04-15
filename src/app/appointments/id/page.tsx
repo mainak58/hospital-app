@@ -14,6 +14,7 @@ async function page() {
             <ClientForm
                 name={user?.fullName || ""}
                 email={user?.primaryEmailAddress?.emailAddress || ""}
+                clerkId= {userId}
             />
         </>
     );
