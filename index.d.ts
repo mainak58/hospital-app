@@ -46,4 +46,5 @@ export interface ClientProps {
     name: string;
     email: string;
     firstName?: string;
+    clerkId?: string;
 }

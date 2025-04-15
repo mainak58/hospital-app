@@ -17,6 +17,7 @@ export const patientTable = pgTable("patients", {
     bookingSlotNumber: integer().notNull(),
     email: varchar(),
     patientAddress: varchar(),
+    clerkId: varchar(),
     doctorId: integer("doctorId")
         .references(() => doctorTable.doctorId, { onDelete: "cascade" })
         .notNull(),
