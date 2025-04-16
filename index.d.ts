@@ -15,6 +15,7 @@ export type Patient = {
     email: string;
     patientAddress: string;
     doctorId: number;
+    clerkId: string;
 };
 
 export interface PatientWithDoctor {
@@ -47,4 +48,12 @@ export interface ClientProps {
     email: string;
     firstName?: string;
     clerkId?: string;
+}
+
+type MyAppointmentsProps = {
+    id: string | undefined;
+};
+
+export interface PatientAppointments extends Patient {
+    doctor: Doctor;
 }
