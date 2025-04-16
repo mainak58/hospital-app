@@ -10,9 +10,13 @@ import {
     SignUpButton,
     UserButton,
 } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
+    const { user } = useUser();
+    const router = useRouter();
 
     return (
         <header className="bg-white shadow-sm fixed w-full z-50 border-b border-gray-100">
@@ -48,6 +52,15 @@ export default function Navbar() {
                         <SignedIn>
                             <div className="ml-4">
                                 <UserButton />
+                                <button
+                                    onClick={() =>
+                                        router.push(
+                                            `myappointments?id=${user?.id}`
+                                        )
+                                    }
+                                >
+                                    My Appointments
+                                </button>
                             </div>
                         </SignedIn>
                     </nav>
