@@ -11,7 +11,6 @@ import {
     UserButton,
 } from "@clerk/nextjs";
 import { useUser } from "@clerk/nextjs";
-import MyAppointments from "./MyAppointments";
 import { useRouter } from "next/navigation";
 
 export default function Navbar() {
