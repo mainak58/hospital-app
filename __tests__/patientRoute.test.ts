@@ -1,8 +1,5 @@
-// __tests__/patientRoute.test.ts
-
 import { GET, DELETE } from "@/app/api/admin/patient/route";
-import { NextRequest } from "next/server";
-
+import { NextResponse } from "next/server";
 jest.mock("@/lib/db");
 
 describe("Patient API", () => {

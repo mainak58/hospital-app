@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "jsx": "preserve",
+        "module": "ESNext",
+        "target": "ESNext",
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "types": ["jest", "node"]
+    },
+    "include": ["__tests__/**/*.tsx", "src/**/*.tsx", "jest.setup.js"]
+}
