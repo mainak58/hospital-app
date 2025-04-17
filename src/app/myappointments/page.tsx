@@ -3,6 +3,8 @@
 import { useSearchParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 import { PatientAppointments } from "../../..";
+import LoadingAppointment from "@/components/LoadingAppointment";
+import PatientAppointment from "@/components/PatientAppointment";
 
 function MyAppointment() {
     const searchParams = useSearchParams();
@@ -24,7 +26,6 @@ function MyAppointment() {
         }
     }
 
-    // Automatically call loadFunction when component mounts
     useEffect(() => {
         loadFunction();
     }, [search]);
@@ -36,12 +37,7 @@ function MyAppointment() {
             </h1>
 
             {loading ? (
-                <div className="flex justify-center items-center h-40">
-                    <div className="animate-pulse flex flex-col items-center">
-                        <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-4"></div>
-                        <p className="text-gray-700">Loading appointments...</p>
-                    </div>
-                </div>
+                <LoadingAppointment />
             ) : doctorList.length > 0 ? (
                 <div className="grid gap-6 md:grid-cols-2">
                     {doctorList.map((appointment) => (
@@ -49,57 +45,21 @@ function MyAppointment() {
                             key={appointment.patientId}
                             className="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
                         >
-                            <div className="bg-blue-600 px-4 py-3">
-                                <h3 className="text-lg font-semibold text-white">
-                                    Dr. {appointment.doctor.doctorName}
-                                </h3>
-                                <p className="text-blue-100 text-sm">
-                                    {appointment.doctor.specialization}
-                                </p>
-                            </div>
-
-                            <div className="p-4">
-                                <div className="mb-4">
-                                    <p className="text-sm text-gray-500">
-                                        Appointment Details
-                                    </p>
-                                    <div className="flex justify-between items-center mt-1">
-                                        <p className="text-gray-700">
-                                            <span className="font-medium">
-                                                Date:
-                                            </span>{" "}
-                                            {new Date(
-                                                appointment.doctor.dateAvailable
-                                            ).toLocaleDateString()}
-                                        </p>
-                                        <span className="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded">
-                                            Slot #
-                                            {appointment.bookingSlotNumber}
-                                        </span>
-                                    </div>
-                                </div>
-
-                                <div className="border-t border-gray-100 pt-3">
-                                    <p className="text-sm text-gray-500">
-                                        Patient Information
-                                    </p>
-                                    <p className="text-gray-700 font-medium mt-1">
-                                        {appointment.patientName}
-                                    </p>
-                                    <p className="text-gray-600 text-sm">
-                                        {appointment.email}
-                                    </p>
-                                    <p className="text-gray-600 text-sm">
-                                        {appointment.patientAddress}
-                                    </p>
-                                </div>
-
-                                <div className="mt-4 pt-3 border-t border-gray-100 flex justify-end">
-                                    <button className="text-blue-600 hover:text-blue-800 text-sm font-medium">
-                                        View Details
-                                    </button>
-                                </div>
-                            </div>
+                            <PatientAppointment
+                                doctorName={appointment.doctor.doctorName}
+                                specialization={
+                                    appointment.doctor.specialization
+                                }
+                                date={new Date(
+                                    appointment.doctor.dateAvailable
+                                ).toLocaleDateString()}
+                                bookingSlotNumber={
+                                    appointment.bookingSlotNumber
+                                }
+                                patientName={appointment.patientName}
+                                email={appointment.email}
+                                patientAddress={appointment.patientAddress}
+                            />
                         </div>
                     ))}
                 </div>
