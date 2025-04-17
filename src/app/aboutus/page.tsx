@@ -76,7 +76,6 @@ function page() {
                     </div>
                 </div>
 
-                {/* Feature Card 2 */}
                 <div className="w-full bg-white rounded-lg shadow-lg flex flex-col md:flex-row-reverse justify-between items-center m-3 p-6 gap-8 transition-transform hover:scale-[1.01]">
                     <Image
                         src={img3}

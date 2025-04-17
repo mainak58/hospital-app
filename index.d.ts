@@ -57,3 +57,13 @@ type MyAppointmentsProps = {
 export interface PatientAppointments extends Patient {
     doctor: Doctor;
 }
+
+export interface PatientAppointmentInterface {
+    doctorName: string;
+    specialization: string;
+    date: string;
+    bookingSlotNumber: number;
+    patientName: string;
+    email: string;
+    patientAddress: string;
+}
