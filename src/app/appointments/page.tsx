@@ -51,7 +51,6 @@ export function Appointments() {
         <>
             <form action="">
                 <div className="space-y-8 px-4 sm:px-8 py-6 max-w-7xl mx-auto">
-                    {/* Date Picker */}
                     <div className="flex flex-col sm:flex-row items-center gap-4">
                         <label
                             htmlFor="date"
@@ -69,7 +68,6 @@ export function Appointments() {
                         />
                     </div>
 
-                    {/* Doctors Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {!loading && doctor.length > 0 ? (
                             doctor.map((d) => (

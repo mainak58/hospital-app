@@ -10,16 +10,9 @@ export default async function AdminNavBar() {
         return redirect("/sign-in");
     }
 
-    // Implement your checkRole logic here if needed
-    // const isAdmin = await checkRole("admin");
-    // if (!isAdmin) {
-    //   return redirect("/unauthorized");
-    // }
-
     return (
         <nav className="bg-white border-b border-gray-200 shadow-md">
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
-                {/* Logo */}
                 <Link
                     href="/"
                     className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 transition-colors duration-300"
@@ -27,7 +20,6 @@ export default async function AdminNavBar() {
                     HealthCare+
                 </Link>
 
-                {/* Navigation Links */}
                 <div className="hidden md:flex space-x-8">
                     <NavItem href="/admin/adddoctor" label="Add Doctor" />
                     <NavItem href="/admin/doctor" label="Doctors" />
