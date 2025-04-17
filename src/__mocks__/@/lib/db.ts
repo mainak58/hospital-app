@@ -1,3 +1,5 @@
+// __mocks__/@/lib/db.ts
+
 export const db = {
     insert: jest.fn(() => ({
         values: jest.fn().mockResolvedValue({
@@ -9,5 +11,16 @@ export const db = {
             dateAvailable: "2025-05-01",
             totalBookingAcceptedInTheDay: "10",
         }),
+    })),
+
+    select: jest.fn(() => ({
+        from: jest.fn().mockResolvedValue([
+            { patientId: 1, name: "John Doe" },
+            { patientId: 2, name: "Jane Doe" },
+        ]),
+    })),
+
+    delete: jest.fn(() => ({
+        where: jest.fn().mockResolvedValue({ success: true }),
     })),
 };
