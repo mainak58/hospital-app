@@ -17,7 +17,7 @@ export async function POST(request: Request) {
         });
         return NextResponse.json({ success: true, data: create });
     } catch (error) {
-        NextResponse.json(
+        return NextResponse.json(
             { message: `error in admin route ${error}` },
             { status: 400 }
         );
