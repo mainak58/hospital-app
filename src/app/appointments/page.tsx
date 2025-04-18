@@ -76,7 +76,7 @@ export function Appointments() {
                                     className="bg-white rounded-xl shadow-md hover:shadow-xl border border-gray-100 transition-all duration-300 overflow-hidden flex flex-col"
                                 >
                                     {/* Doctor Image */}
-                                    {/* <div className="relative h-52 w-full">
+                                    <div className="relative h-52 w-full">
                                         <Image
                                             src={d.doctorImage}
                                             alt={`Dr. ${d.doctorName}`}
@@ -84,7 +84,7 @@ export function Appointments() {
                                             objectFit="cover"
                                             className="object-cover"
                                         />
-                                    </div> */}
+                                    </div>
 
                                     <div className="p-5 flex flex-col justify-between flex-grow">
                                         <div>
