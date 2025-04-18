@@ -1,18 +1,15 @@
-import banner1 from "@/../img/banner-img2.jpg";
+import banner1 from "@/../img/isolated-1188036_1280.webp";
 import about1 from "@/../img/about-img.jpg";
-import ortho1 from "@/../img/orthopedic.png";
 import Image from "next/image";
 import Link from "next/link";
 import Departments from "@/components/Depeartments";
+import FooterSection from "@/components/FooterSection";
 
 export default function Home() {
     return (
         <>
             <div className="relative w-full h-[700px] md:h-screen">
-                {/* Banner Image */}
                 <Image src={banner1} alt="banner" fill className="object-fit" />
-
-                {/* Overlay */}
                 <div className="absolute inset-0 flex items-center justify-start">
                     <div className="max-w-2xl px-8 text-black space-y-6">
                         <h2 className="text-4xl md:text-5xl font-bold">
@@ -60,8 +57,8 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-
             <Departments />
+            <FooterSection />
         </>
     );
 }
