@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, Suspense } from "react";
 import { PatientAppointments } from "../../..";
 import LoadingAppointment from "@/components/LoadingAppointment";
 import PatientAppointment from "@/components/PatientAppointment";
@@ -12,7 +12,7 @@ function MyAppointment() {
     const [doctorList, setDoctorList] = useState<PatientAppointments[]>([]);
     const [loading, setLoading] = useState(false);
 
-    async function loadFunction() {
+    const loadFunction = useCallback(async () => {
         if (!search) return;
         setLoading(true);
         try {
@@ -24,11 +24,11 @@ function MyAppointment() {
         } finally {
             setLoading(false);
         }
-    }
+    }, [search]);
 
     useEffect(() => {
         loadFunction();
-    }, [search]);
+    }, [loadFunction]);
 
     return (
         <div className="max-w-4xl mx-auto p-6 bg-gray-50 rounded-lg shadow-md">
@@ -83,7 +83,7 @@ function MyAppointment() {
                         No appointments found
                     </h3>
                     <p className="text-gray-500 mt-2">
-                        You don't have any upcoming appointments scheduled.
+                        You dont have any upcoming appointments scheduled.
                     </p>
                 </div>
             )}
@@ -91,4 +91,10 @@ function MyAppointment() {
     );
 }
 
-export default MyAppointment;
+export default function FetchAppointment() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <MyAppointment />
+        </Suspense>
+    );
+}

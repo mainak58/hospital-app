@@ -1,16 +1,15 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { PatientWithDoctor } from "../../../../..";
 
-
-export default function FetchPatient() {
+// This wrapper component will handle the suspense
+function PatientContent() {
     const [fetchPatient, setFetchPatient] = useState<PatientWithDoctor[]>([]);
     const [loading, setLoading] = useState(true);
     const searchParams = useSearchParams();
     const id = searchParams.get("id");
-    console.log(id);
 
     useEffect(() => {
         if (!id) {
@@ -68,5 +67,13 @@ export default function FetchPatient() {
                 <p>No patients found for this doctor.</p>
             )}
         </>
+    );
+}
+
+export default function FetchPatient() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <PatientContent />
+        </Suspense>
     );
 }

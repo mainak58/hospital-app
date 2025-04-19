@@ -4,7 +4,7 @@ import { Doctor } from "../../..";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export function Appointments() {
+export default function Appointments() {
     const [date, setDate] = useState<Date | null>(null);
     const [doctor, setDoctor] = useState<Doctor[]>([]);
     const [loading, setLoading] = useState(false);
@@ -129,4 +129,3 @@ export function Appointments() {
     );
 }
 
-export default Appointments;
