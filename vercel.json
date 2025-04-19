@@ -1,6 +1,0 @@
-{
-    "includeFiles": [
-        "src/lib/schema.ts", 
-        "drizzle.config.ts"
-    ]
-}
