@@ -112,7 +112,7 @@ export function Appointments() {
                                             }}
                                             className="mt-4 bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-4 rounded-lg font-medium transition duration-200"
                                         >
-                                            Select Doctor
+                                            Book an Appointment
                                         </button>
                                     </div>
                                 </div>

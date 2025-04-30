@@ -3,13 +3,11 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { UserButton, useUser, SignedIn, SignedOut } from "@clerk/nextjs";
+import { UserButton, useUser, SignedIn } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 
 export default function AdminNavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
-    const { user } = useUser();
-    const router = useRouter();
 
     return (
         <header className="bg-gray-200 shadow-sm fixed w-full z-50 border-b border-gray-100">
