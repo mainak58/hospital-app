@@ -18,6 +18,16 @@ export type Patient = {
     clerkId: string;
 };
 
+export interface PatientId {
+    patientId?: number;
+    patientName?: string;
+    bookingSlotNumber?: number;
+    email?: string;
+    patientAddress?: string;
+    doctorId?: number | undefined ;
+    clerkId?: string;
+}
+
 export interface PatientWithDoctor {
     patientId: number;
     patientName: string;
