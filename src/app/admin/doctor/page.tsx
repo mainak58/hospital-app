@@ -48,6 +48,9 @@ export default function DoctorList() {
 
     return (
         <div className="p-6 bg-gradient-to-br from-white to-indigo-50 min-h-screen">
+            <h1 className="text-2xl font-bold mb-6 text-gray-800">
+                Hello Admin, here is your Doctor list
+            </h1>
             <div className="overflow-hidden bg-white rounded-2xl shadow-xl border border-gray-200">
                 <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-indigo-50">
@@ -75,6 +78,12 @@ export default function DoctorList() {
                                 className="px-6 py-3 text-right text-xs font-semibold text-indigo-700 uppercase tracking-wider"
                             >
                                 Actions
+                            </th>
+                            <th
+                                scope="col"
+                                className="px-6 py-3 text-right text-xs font-semibold text-indigo-700 uppercase tracking-wider"
+                            >
+                                Patient
                             </th>
                         </tr>
                     </thead>
