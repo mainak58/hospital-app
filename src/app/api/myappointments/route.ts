@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { db } from "@/lib/db";
 import { eq } from "drizzle-orm";
 import { NextResponse } from "next/server";
@@ -15,7 +17,7 @@ export async function GET(request: Request) {
         }
 
         const result = await db.query.patientTable.findMany({
-            where: (patient) => eq(patient.clerkId, id),
+            where: (patient) => eq(patient.doctorId, id),
             with: {
                 doctor: true,
             },

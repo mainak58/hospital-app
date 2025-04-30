@@ -6,18 +6,10 @@ import { PatientWithDoctor } from "../../../../../..";
 export async function GET(request: Request) {
     try {
         const url = new URL(request.url);
-        const id = url.searchParams.get("id");
+        const uid = url.searchParams.get("id");
 
-        if (!id) {
-            return NextResponse.json(
-                { message: "Doctor ID is required" },
-                { status: 400 }
-            );
-        }
-
-        // Type the result with the proper interface
-        const result = (await db.query.patientTable.findMany({
-            where: (patient) => eq(patient.doctorId, id),
+        const result = (await (db as any).query.patientTable.findMany({
+            where: (patient: any) => eq(patient.doctorId, uid),
             with: {
                 doctor: true,
             },

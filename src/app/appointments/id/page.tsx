@@ -6,9 +6,7 @@ async function page() {
     const { userId, redirectToSignIn } = await auth();
     const user = await currentUser();
     if (!userId) return redirectToSignIn();
-
-
-    
+   
     return (
         <>
             <ClientForm
