@@ -1,3 +1,4 @@
+import FooterSection from "@/components/FooterSection";
 import Navbar from "@/components/Navbar";
 import React from "react";
 
@@ -6,6 +7,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         <>
             <Navbar />
             <main>{children}</main>
+            <FooterSection />
         </>
     );
 }
