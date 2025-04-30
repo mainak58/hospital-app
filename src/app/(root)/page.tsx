@@ -1,4 +1,3 @@
-import banner1 from "@/../img/isolated-1188036_1280.webp";
 import about1 from "@/../img/about-img.jpg";
 import Image from "next/image";
 import Link from "next/link";

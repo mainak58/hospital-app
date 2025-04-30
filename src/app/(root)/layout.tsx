@@ -1,4 +1,3 @@
-import FooterSection from "@/components/FooterSection";
 import NavbarCheck from "@/components/NavbarCheck";
 import React from "react";
 
