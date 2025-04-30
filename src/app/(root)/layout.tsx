@@ -7,7 +7,6 @@ function Layout({ children }: Readonly<{ children: React.ReactNode }>) {
         <main>
             <NavbarCheck />
             <main>{children}</main>
-            <FooterSection />
         </main>
     );
 }
