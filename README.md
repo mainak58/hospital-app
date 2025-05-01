@@ -1,4 +1,4 @@
-# Hotel-app
+# Hospital-app
 
 This is a full-stack project built using Next.js.
 
